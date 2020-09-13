@@ -18,6 +18,7 @@ function Chat({ message }) {
 	const { roomId } = useParams();
 	const [roomName, setRoomName] = useState("");
 	const [messages, setMessages] = useState([]);
+	const [lastSeen, setLastSeen] = useState("");
 
 	useEffect(() => {
 		if (roomId) {
@@ -41,6 +42,35 @@ function Chat({ message }) {
 		return () => {};
 	}, [roomId]);
 
+	useEffect(() => {
+		// if (messages.length > 1) {
+		// 	// console.log(
+		// 	// 	//? get lat messages
+		// 	// 	messages[messages.length - 1].timestamp,
+		// 	// 	//? Convert timestamp to date
+		// 	// 	new Date(
+		// 	// 		messages[messages.length - 1].timestamp?.toDate()
+		// 	// 	).toUTCString(),
+		// 	// 	"message"
+		// 	// );
+		// 	setLastSeen(
+		// 		new Date(
+		// 			messages[messages.length - 1].timestamp?.toDate()
+		// 		).toUTCString()
+		// 	);
+		// }
+		// setLastSeen(
+		// 	// new Date(
+		// 	messages[messages.length - 1]
+		// 	// .timestamp
+		// 	// ?.toDate().toUTCString()				)
+		// );
+		// }
+		return () => {
+			// cleanup
+		};
+	}, [messages]);
+
 	const sendMessage = (e) => {
 		e.preventDefault();
 		// console.log(e.target.value);
@@ -59,7 +89,7 @@ function Chat({ message }) {
 		});
 		setInput("");
 	};
-
+	// console.log(messages, "messages");
 	return (
 		<div className="chat">
 			<div className="chat__header">
@@ -68,7 +98,8 @@ function Chat({ message }) {
 				></Avatar>
 				<div className="chat__headerInfo">
 					<h3>{roomName}</h3>
-					<p>Last seen at ...</p>
+
+					<p> {lastSeen && lastSeen}</p>
 				</div>
 
 				<div className="chat__headerRight">
@@ -91,8 +122,8 @@ function Chat({ message }) {
 							message.name === user.displayName && "chat__receiver"
 						}`}
 					>
-						<span className="chat__name">{message?.name | "Placeholder"}</span>
-						{`${message.message}`}
+						<span className="chat__name">{message?.name}</span>
+						{`${message.message} `}
 						<span className="chat__timestamp">
 							{new Date(message.timestamp?.toDate()).toUTCString()}
 						</span>
