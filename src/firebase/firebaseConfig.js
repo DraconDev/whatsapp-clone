@@ -1,3 +1,4 @@
+//?  Firebase key, unique to every project
 const firebaseConfig = {
 	apiKey: "AIzaSyDi_UhtQnmGdJcpQoyUJHHVnKjDighLrFY",
 	authDomain: "whats-app-df8ac.firebaseapp.com",

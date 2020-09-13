@@ -1,0 +1,31 @@
+@import "../../Styles/_config.scss";
+
+.login {
+	background-color: $color3;
+	height: 100vh;
+	width: 100vw;
+	display: grid;
+	place-items: center;
+
+	.container {
+		padding: 100px;
+		text-align: center;
+		background-color: $color3;
+		border-radius: 10px;
+		box-shadow: 0 1px 3px $color1;
+
+		img {
+			object-fit: contain;
+			height: 100px;
+			margin-bottom: 40px;
+			// border-radius: 50%;
+		}
+
+		button {
+			margin-top: 50px;
+			text-transform: inherit !important;
+			background-color: $color4 !important;
+			color: $color1;
+		}
+	}
+}

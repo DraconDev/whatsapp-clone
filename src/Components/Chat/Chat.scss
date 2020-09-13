@@ -1,4 +1,4 @@
-@import "../../Style/_config.scss";
+@import "../../Styles/_config.scss";
 
 .chat {
 	flex: 0.65;
@@ -84,6 +84,7 @@
 			input {
 				flex: 1;
 				border-radius: 30px;
+				outline: none;
 			}
 
 			button {
@@ -94,6 +95,12 @@
 		.MuiSvgIcon-root {
 			padding: 10px;
 			color: $color1;
+		}
+	}
+
+	.chat__message {
+		.chat__timestamp {
+			font-size: x-small;
 		}
 	}
 }
